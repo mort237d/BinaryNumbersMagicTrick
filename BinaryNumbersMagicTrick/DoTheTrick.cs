@@ -23,7 +23,7 @@ namespace BinaryNumbersMagicTrick
 
         public DoTheTrick()
         {
-            Console.WriteLine("Velkommen til trylletricket. Tænk på et tal mellem 1 og 31.");
+            Console.WriteLine("Tænk på et tal mellem 1 og 31.");
 
             showCard(TrickCard1);
             showCard(TrickCard2);
@@ -39,9 +39,11 @@ namespace BinaryNumbersMagicTrick
             loop = true;
             while (loop)
             {
-                Console.WriteLine("---------------");
+                string breaker = "+-----------------+";
+                Console.WriteLine(breaker);
                 foreach (int number in Card)
                 {
+                    Console.Write("|");
                     if (number < 10)
                     {
                         Console.Write(" " + number + "| ");
@@ -59,7 +61,7 @@ namespace BinaryNumbersMagicTrick
                         counter = 0;
                     }
                 }
-                Console.WriteLine("---------------");
+                Console.WriteLine(breaker);
 
                 Console.WriteLine();
                 Console.WriteLine("Er tallet på denne plade? (j)a eller (n)ej");
