@@ -10,6 +10,7 @@ namespace BinaryNumbersMagicTrick
     {
         static void Main(string[] args)
         {
+            DoTheTrick dothetrick = new DoTheTrick();
         }
     }
 }
