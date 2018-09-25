@@ -15,9 +15,11 @@ namespace BinaryNumbersMagicTrick
         private int[] TrickCard3 = {04,05,06,07,12,13,14,15,20,21,22,23,28,29,30,31};
         private int[] TrickCard4 = {02,03,06,07,10,11,14,15,18,19,22,23,26,27,30,31};
         private int[] TrickCard5 = {01,03,05,07,09,11,13,15,17,19,21,23,25,27,29,31};
+
         private string input;
         private int sum;
         private int counter;
+        private bool loop;
 
         public DoTheTrick()
         {
@@ -34,36 +36,54 @@ namespace BinaryNumbersMagicTrick
 
         private void showCard(int[] Card)
         {
-            Console.WriteLine("---------------");
-            foreach (int number in Card)
+            loop = true;
+            while (loop)
             {
-                if (number < 10)
+                Console.WriteLine("---------------");
+                foreach (int number in Card)
                 {
-                    Console.Write(" " + number + "| ");
-                }
-                else
-                {
-                    Console.Write(number + "| ");
-                }
-                
-                counter++;
+                    if (number < 10)
+                    {
+                        Console.Write(" " + number + "| ");
+                    }
+                    else
+                    {
+                        Console.Write(number + "| ");
+                    }
 
-                if (counter==4)
+                    counter++;
+
+                    if (counter == 4)
+                    {
+                        Console.WriteLine();
+                        counter = 0;
+                    }
+                }
+                Console.WriteLine("---------------");
+
+                Console.WriteLine();
+                Console.WriteLine("Er tallet på denne plade? (j)a eller (n)ej");
+
+                input = Console.ReadKey(true).KeyChar.ToString();
+
+                if (input == "j")
                 {
+                    sum = sum + Card.First();
+                    loop = false;
+                }
+                else if (input == "n")
+                {
+                    Console.WriteLine("Kortet smides væk!");
+                    loop = false;
+                }
+
+                Console.Clear();
+
+                if (input != "j" && input != "n")
+                {
+                    Console.WriteLine("Manglende information");
                     Console.WriteLine();
-                    counter = 0;
                 }
-            }
-            Console.WriteLine("---------------");
-
-            Console.WriteLine();
-            Console.WriteLine("Er tallet på denne plade? (j)a eller (n)ej");
-
-            input = Console.ReadLine();
-
-            if (input == "j")
-            {
-                sum = sum + Card.First();
             }
         }
     }
